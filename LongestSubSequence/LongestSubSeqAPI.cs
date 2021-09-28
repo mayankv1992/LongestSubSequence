@@ -6,11 +6,14 @@ namespace LongestSubSequence
     {
         public static string LongestSubSeq(string inpSeq)
         {
-            string[] arrSeq = inpSeq.Split(' ');
-            string outSeq = arrSeq[0];
-            int maxLength = 1;
-            string tempSeq = arrSeq[0];
+            #region Variable initialization
+            string[] arrSeq = inpSeq.Split(' '); //splitting the input array
+            string outSeq = arrSeq[0]; //assigned the output string with the first element of the input incase no incrementing sub sequence is available.
+            int maxLength = 1; //Assigned the maxLength to 1.
+            string tempSeq = arrSeq[0]; //Temporary sequence for calculations and operations.
+            #endregion
 
+            #region Logic to traverse the input array and find the sub sequence.
             for (int i = 0; i < arrSeq.Length - 1; i++)
             {
                 if (int.Parse(arrSeq[i + 1]) > int.Parse(arrSeq[i]))
@@ -33,10 +36,13 @@ namespace LongestSubSequence
 
                 }
             }
+            
             if (outSeq.Split(' ').Length < tempSeq.Split(' ').Length)
             {
                 outSeq = tempSeq;
             }
+            #endregion
+
             return outSeq;
         }
     }
